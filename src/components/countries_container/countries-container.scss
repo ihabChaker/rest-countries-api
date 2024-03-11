@@ -1,0 +1,12 @@
+.countries {
+    margin-top: 4rem;
+}
+.countries__container {
+    @include container;
+
+    display: grid;
+    @media screen and (min-width: $breakpoint-l) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6rem;
+    }
+}

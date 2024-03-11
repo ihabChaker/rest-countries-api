@@ -1,9 +1,9 @@
 import "./App.scss";
-import { Navbar } from "./components";
+import { Home } from "./components";
 const App = () => {
   return (
-    <div className="app-container">
-      <Navbar />
+    <div className="app">
+      <Home />
     </div>
   );
 };

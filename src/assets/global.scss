@@ -5,3 +5,17 @@ $very-dark-blue: hsl(200, 15%, 8%); //(Light Mode Text)
 $dark-gray: hsl(0, 0%, 52%); // (Light Mode Input)
 $very-light-gray: hsl(0, 0%, 98%); //(Light Mode Background)
 $white: hsl(0, 0%, 100%); //(Dark Mode Text & Light Mode Elements)
+
+$breakpoint-sm: 480px;
+$breakpoint-m: 768px;
+$breakpoint-l: 1024px;
+$breakpoint-xl: 1280px;
+
+@mixin container {
+    padding-inline: 1rem;
+    @media screen and (min-width: $breakpoint-xl) {
+        padding-inline: unset;
+        max-width: 1285px;
+    }
+    margin-inline: auto;
+}

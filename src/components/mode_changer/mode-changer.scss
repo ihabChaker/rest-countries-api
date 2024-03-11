@@ -1,0 +1,14 @@
+.mode-changer__btn {
+    color: $very-light-gray;
+    background-color: transparent;
+    border: 0;
+
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.mode-changer__icon {
+    width: -moz-fit-content;
+    width: fit-content;
+}
