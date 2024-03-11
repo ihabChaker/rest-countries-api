@@ -1,5 +1,7 @@
+import "./region-filter.scss";
+
 const RegionFilter = () => {
-  return <div>RegionFilter</div>;
+  return <div className="region-filter">RegionFilter</div>;
 };
 
 export default RegionFilter;

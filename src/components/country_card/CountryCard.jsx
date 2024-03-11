@@ -23,6 +23,10 @@
  * @param {Object} props - Component props.
  * @param {CountryData} props.country - Country data object.
  */
+
+import { Link } from "react-router-dom";
+import "./country-card.scss";
+
 const CountryCard = ({ country }) => {
   return (
     <div className="country">
@@ -31,7 +35,11 @@ const CountryCard = ({ country }) => {
       </div>
       <div className="country-infos">
         <div className="country-infos__container">
-          <h2 className="country-infos__name">{country.name.common}</h2>
+          <h2 className="country-infos__name">
+            <Link to={{ pathname: "/country" }} state={country}>
+              {country.name.common}
+            </Link>
+          </h2>
           <p className="country-infos__info">
             <span>Population</span> {country.population}
           </p>

@@ -1,0 +1,9 @@
+.filters {
+    margin-block: 6rem;
+}
+.filters__container {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -1,0 +1,28 @@
+.country__flag-container {
+    height: 160px;
+    & > img {
+        height: 160px;
+        object-fit: cover;
+    }
+}
+.country-infos {
+    background-color: $dark-blue;
+    color: $very-light-gray;
+    padding: 3rem;
+}
+.country-infos__name {
+    font-size: 2rem;
+    font-weight: 600;
+
+    margin-bottom: 1.5rem;
+}
+.country-infos__info {
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+    color: hsl(0deg 0% 88.25%);
+    font-weight: 300;
+    span {
+        font-weight: 600;
+        color: $very-light-gray;
+    }
+}

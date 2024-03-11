@@ -16,11 +16,7 @@ body {
   font-family: "Nunito Sans", sans-serif;
 }
 
-html,
-body,
-#root {
-  height: 100%;
-}
+
 
 img,
 picture,
