@@ -1,0 +1,33 @@
+.country-infos__container {
+    @include container;
+
+    margin-top: 5rem;
+    font-size: 1.6rem;
+}
+.country-infos__back-btn {
+    background-color: $dark-blue;
+    color: $very-light-gray;
+    border: 0;
+    display: flex;
+    gap: 1.4rem;
+    align-items: center;
+    padding: 10px 35px;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.details {
+    // TODO: Mobile layout
+    margin-top: 8rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // TODO: Mobile layout
+    gap: 13rem;
+}
+.details__infos-container {
+    padding-block: 4rem;
+    color: $white;
+}
+.country__common-name {
+    font-size: 3rem;
+}

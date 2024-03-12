@@ -6,7 +6,7 @@
     }
 }
 .country-infos {
-    background-color: $dark-blue;
+    background-color: $dark-very-dark-blue;
     color: $very-light-gray;
     padding: 3rem;
 }
@@ -15,6 +15,10 @@
     font-weight: 600;
 
     margin-bottom: 1.5rem;
+    a {
+        color: $very-light-gray;
+        text-decoration: none;
+    }
 }
 .country-infos__info {
     margin-bottom: 0.75rem;

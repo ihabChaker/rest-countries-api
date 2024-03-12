@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Navbar from "../navbar/Navbar";
 import { fetchCountries } from "../../utils/rest-countries-api-services";
 import CountriesContainer from "../countries_container/CountriesContainer";
-import Filters from "../filters/Filters";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./home.scss";
@@ -27,7 +26,6 @@ const Home = () => {
   return (
     <div className="home">
       <Navbar />
-      <Filters />
       <RouterProvider router={router} />
     </div>
   );
