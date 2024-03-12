@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /**
  *
  * @typedef {object} CountryData
@@ -26,6 +27,8 @@ import {
   transformCurrenciesObjectToString,
   transformLanguagesObjectToString,
 } from "../../utils/countries-infos-utils";
+import { getCountryNameByCode } from "../../utils/rest-countries-api-services";
+import { useEffect, useState } from "react";
 
 const CountryInfos = () => {
   const location = useLocation();
@@ -34,6 +37,16 @@ const CountryInfos = () => {
   const handleGoingBack = () => {
     navigate(-1);
   };
+
+  const [countryNames, setCountryNames] = useState([]);
+
+  useEffect(() => {
+    if (country.borders) {
+      Promise.all(country.borders.map(getCountryNameByCode))
+        .then(setCountryNames)
+        .catch(console.error);
+    }
+  }, []);
   return (
     <div className="country-infos">
       <div className="country-infos__container">
@@ -46,47 +59,54 @@ const CountryInfos = () => {
           </div>
           <div className="details__infos-container">
             <h1 className="details__common-name">{country.name.common}</h1>
-            <div className="details__columns-layout">
-              <div className="details__column">
-                <p>
-                  <span>Native Name: </span>
-                  {
-                    country.name.nativeName[Object.keys(country.languages)[0]]
-                      .common
-                  }
-                </p>
-                <p>
-                  <span>Population: </span>
-                  {country.population}
-                </p>
-                <p>
-                  <span>Region: </span>
-                  {country.region}
-                </p>
-                <p>
-                  <span>Sub Region: </span>
-                  {country.subregion}
-                </p>
-                <p>
-                  <span>
-                    {country.capital.length == 1 ? "Capital" : "Capitals"}:{" "}
-                  </span>
-                  {transformCapitalsArrayToString(country.capital)}
-                </p>
+            <div className="">
+              <div className="details__columns-layout">
+                <div className="details__column">
+                  <CountryDetail
+                    label={"Native Name"}
+                    detail={
+                      country.name.nativeName[Object.keys(country.languages)[0]]
+                        .common
+                    }
+                  />
+                  <CountryDetail
+                    label={"Population"}
+                    detail={country.population}
+                  />
+                  <CountryDetail label={"Region"} detail={country.region} />
+                  <CountryDetail
+                    label={"Sub Region"}
+                    detail={country.subregion}
+                  />
+                  <CountryDetail
+                    label={country.capital.length == 1 ? "Capital" : "Capitals"}
+                    detail={transformCapitalsArrayToString(country.capital)}
+                  />
+                </div>
+                <div className="details__column">
+                  <CountryDetail
+                    label={"Top Level Domain"}
+                    detail={country.tld}
+                  />
+                  <CountryDetail
+                    label={"Currencies"}
+                    detail={transformCurrenciesObjectToString(
+                      country.currencies
+                    )}
+                  />
+                  <CountryDetail
+                    label={"Languages"}
+                    detail={transformLanguagesObjectToString(country.languages)}
+                  />
+                </div>
               </div>
-              <div className="details__column">
-                <p>
-                  <span>Top Level Domain: </span>
-                  {country.tld[0]}
-                </p>
-                <p>
-                  <span>Currencies: </span>
-                  {transformCurrenciesObjectToString(country.currencies)}
-                </p>
-                <p>
-                  <span>Languages: </span>
-                  {transformLanguagesObjectToString(country.languages)}
-                </p>
+              <div className="details__border-countries">
+                <p>Border countries: </p>
+                <div className="border-countries__container">
+                  {countryNames.map((name, index) => (
+                    <BorderCountry key={index} name={name} />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -95,5 +115,11 @@ const CountryInfos = () => {
     </div>
   );
 };
-
+const BorderCountry = ({ name }) => <p className="border-country">{name}</p>;
+const CountryDetail = ({ label, detail }) => (
+  <p>
+    <span>{label}: </span>
+    {detail}
+  </p>
+);
 export default CountryInfos;

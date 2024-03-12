@@ -1,16 +1,16 @@
-.country__flag-container {
+.country-card__flag-container {
     height: 160px;
     & > img {
         height: 160px;
         object-fit: cover;
     }
 }
-.country-infos {
-    background-color: $dark-very-dark-blue;
+.country-card-infos {
+    background-color: $dark-blue;
     color: $very-light-gray;
     padding: 3rem;
 }
-.country-infos__name {
+.country-card-infos__name {
     font-size: 2rem;
     font-weight: 600;
 
@@ -20,7 +20,7 @@
         text-decoration: none;
     }
 }
-.country-infos__info {
+.country-card-infos__info {
     margin-bottom: 0.75rem;
     font-size: 1.4rem;
     color: hsl(0deg 0% 88.25%);
