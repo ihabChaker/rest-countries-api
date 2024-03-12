@@ -1,5 +1,27 @@
 .countries-search-input__container {
-    width: -moz-fit-content;
-    width: fit-content;
-    background-color: white;
+    // TODO: Mobile layout
+    width: 38%;
+    background-color: $dark-blue;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    color: $white;
+    padding-block: 2rem;
+    padding-inline: 3.5rem;
+    border-radius: 0.5rem;
+}
+.countries-search-input__container > input {
+    outline: 0;
+    background-color: transparent;
+    color: $white;
+    font-size: 1.6rem;
+    border: 0;
+    width: 100%;
+    &::placeholder {
+        font-size: 1.4rem;
+        color: $white;
+    }
+}
+.magnifying-loop-icon {
+    width: initial;
 }
