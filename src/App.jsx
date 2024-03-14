@@ -1,9 +1,12 @@
 import "./App.scss";
-import { Home } from "./components";
+import { CountriesProvider, Home } from "./components";
+
 const App = () => {
   return (
     <div className="app">
-      <Home />
+      <CountriesProvider>
+        <Home />
+      </CountriesProvider>
     </div>
   );
 };

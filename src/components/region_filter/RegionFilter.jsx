@@ -2,16 +2,24 @@ import "./region-filter.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { getCountriesByRegion } from "../../utils/rest-countries-api-services";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CountriesContext } from "../../context/CountriesContext";
 
 const RegionFilter = () => {
   const regions = [
     { displayName: "Asia", apiSearchName: "asia" },
     { displayName: "America", apiSearchName: "america" },
     { displayName: "Africa", apiSearchName: "africa" },
-    { displayName: "Ocenia", apiSearchName: "ocenia" },
+    { displayName: "Oceania", apiSearchName: "oceania" },
     { displayName: "Europe", apiSearchName: "europe" },
   ];
+  const { setCountries } = useContext(CountriesContext);
+  const regionOnClickHandler = (region) => {
+    return async function () {
+      const countries = await getCountriesByRegion(region);
+      setCountries(countries);
+    };
+  };
   const [isExpanded, setIsExpanded] = useState(false);
   return (
     <div className="region-filter">
@@ -32,7 +40,7 @@ const RegionFilter = () => {
           {regions.map(({ displayName, apiSearchName }, index) => (
             <Region
               displayName={displayName}
-              apiSearchName={apiSearchName}
+              clickHandler={regionOnClickHandler(apiSearchName)}
               key={index}
             />
           ))}
@@ -42,8 +50,8 @@ const RegionFilter = () => {
   );
 };
 // eslint-disable-next-line react/prop-types
-const Region = ({ displayName, apiSearchName }) => (
-  <li className="region" onClick={getCountriesByRegion(apiSearchName)}>
+const Region = ({ displayName, clickHandler }) => (
+  <li className="region" onClick={clickHandler}>
     {displayName}
   </li>
 );

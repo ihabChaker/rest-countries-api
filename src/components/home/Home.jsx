@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import Navbar from "../navbar/Navbar";
 import { fetchCountries } from "../../utils/rest-countries-api-services";
 import CountriesContainer from "../countries_container/CountriesContainer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-import "./home.scss";
 import CountryInfos from "../country_infos/CountryInfos";
+import { CountriesContext } from "../../context/CountriesContext";
+import "./home.scss";
 const Home = () => {
-  const [countries, setCountries] = useState([]);
+  const { countries, setCountries } = useContext(CountriesContext);
+
   useEffect(() => {
     fetchCountries().then((fetchedCountries) => {
       setCountries(fetchedCountries);
