@@ -1,22 +1,43 @@
+.country-card {
+    width: 76%;
+    margin-inline: auto;
+    @include breakpoint-m {
+        width: initial;
+        margin-inline: initial;
+    }
+    border-radius: 1rem;
+}
 .country-card__flag-container {
-    height: 160px;
-    & > img {
+    height: 317px;
+    @include breakpoint-l {
         height: 160px;
+    }
+    & > img {
+        height: 100%;
+        width: 100%;
         object-fit: cover;
     }
 }
 .country-card-infos {
     background-color: $dark-blue;
     color: $very-light-gray;
-    padding-inline: 3rem;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
+    padding: 5rem;
+    padding-bottom: 8rem;
+    @include breakpoint-l {
+        padding-inline: 3rem;
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+    }
 }
 .country-card-infos__name {
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 3.5rem;
+    margin-bottom: 3.5rem;
+    @include breakpoint-l {
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+    }
+    font-weight: 800;
 
-    margin-bottom: 1.5rem;
     a {
         color: $very-light-gray;
         text-decoration: none;
@@ -24,8 +45,11 @@
 }
 .country-card-infos__info {
     line-height: 1;
-    margin-bottom: 0.9rem;
-    font-size: 1.4rem;
+    margin-bottom: 1.6rem;
+    font-size: 2.8rem;
+    @include breakpoint-l {
+        font-size: 1.4rem;
+    }
     color: hsl(0deg 0% 88.25%);
     font-weight: 300;
     span {

@@ -2,10 +2,10 @@
     @include container;
     // TODO: Tablets and mobile layouts adjustements
     display: grid;
-    gap: 2rem;
+    gap: 8rem;
     @include breakpoint-m {
         grid-template-columns: repeat(2, 1fr);
-        gap: 6rem;
+        gap: 5rem;
     }
     @include breakpoint-l {
         grid-template-columns: repeat(4, 1fr);

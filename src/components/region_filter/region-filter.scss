@@ -1,31 +1,53 @@
 .region-filter {
     position: relative;
+    width: 58%;
+    @include breakpoint-l {
+        width: unset;
+    }
 }
 .region-filter__btn,
 .regions__list {
-    font-size: 1.4rem;
-
     background-color: $dark-blue;
     color: $white;
-    padding-block: 1.5rem;
-    padding-inline: 2rem;
+
+    width: 100%;
+    padding-block: 2.5rem;
+    padding-inline: 5rem;
+    font-size: 2.5rem;
+    @include breakpoint-l {
+        padding-block: 1.5rem;
+        padding-inline: 2rem;
+        font-size: 1.4rem;
+    }
     border-radius: 0.5rem;
     border: 0;
 }
-.region-filter__text {
-    width: 100%;
-}
+
 .region-filter__icon {
     width: initial;
-    padding-left: 5rem;
+}
+.region-filter__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include breakpoint-l {
+        justify-content: initial;
+        gap: 5rem;
+    }
 }
 .regions__list {
+    padding-top: 5rem;
+    @include breakpoint-l {
+        padding-top: 2.5rem;
+    }
     position: absolute;
     list-style-type: none;
-    width: 100%;
     transform: translateY(5px);
 }
 .region {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    @include breakpoint-l {
+        margin-bottom: 1.5rem;
+    }
     line-height: 1;
 }

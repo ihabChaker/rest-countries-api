@@ -18,15 +18,14 @@
  * @property {object} languages
  * @property {string[]} borders
  */
+
+import { Link } from "react-router-dom";
+import "./country-card.scss";
 /**
  * Represents a country card.
  * @param {Object} props - Component props.
  * @param {CountryData} props.country - Country data object.
  */
-
-import { Link } from "react-router-dom";
-import "./country-card.scss";
-
 const CountryCard = ({ country }) => {
   return (
     <div className="country-card">
@@ -41,13 +40,13 @@ const CountryCard = ({ country }) => {
             </Link>
           </h2>
           <p className="country-card-infos__info">
-            <span>Population</span> {country.population}
+            <span>Population: </span> {country.population.toLocaleString()}
           </p>
           <p className="country-card-infos__info">
-            <span>Region</span> {country.region}
+            <span>Region: </span> {country.region}
           </p>
           <p className="country-card-infos__info">
-            <span>Capital</span> {country.capital[0]}
+            <span>Capital: </span> {country.capital[0]}
           </p>
         </div>
       </div>

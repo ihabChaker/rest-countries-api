@@ -1,27 +1,41 @@
 .countries-search-input__container {
-    // TODO: Mobile layout
-    width: 38%;
+    @include breakpoint-l {
+        width: 38%;
+    }
     background-color: $dark-blue;
     display: flex;
     align-items: center;
-    gap: 2rem;
     color: $white;
-    padding-block: 2rem;
-    padding-inline: 3.5rem;
+    padding-inline: 7rem;
+    padding-block: 3rem;
+    gap: 5rem;
+    @include breakpoint-l {
+        gap: 2rem;
+        padding-block: 2rem;
+        padding-inline: 3.5rem;
+    }
     border-radius: 0.5rem;
 }
 .countries-search-input__container > input {
     outline: 0;
     background-color: transparent;
     color: $white;
-    font-size: 1.6rem;
+    --fs: 2.4rem;
+    @include breakpoint-l {
+        --fs: 1.4rem;
+    }
+    font-size: var(--fs);
     border: 0;
     width: 100%;
     &::placeholder {
-        font-size: 1.4rem;
+        font-size: var(--fs);
         color: $white;
     }
 }
 .magnifying-loop-icon {
     width: initial;
+    font-size: 3em;
+    @include breakpoint-l {
+        font-size: 2em;
+    }
 }

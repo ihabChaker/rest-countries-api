@@ -14,11 +14,12 @@ const CountriesSearchInput = () => {
     );
     setCountries(countries);
   };
+
   return (
     <div className="countries-search-input__container">
       <FontAwesomeIcon
         icon={faMagnifyingGlass}
-        className="fa-2x magnifying-loop-icon"
+        className="magnifying-loop-icon"
       />
       <input
         type="text"

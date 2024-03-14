@@ -1,9 +1,19 @@
 .filters {
-    margin-block: 4.5rem;
+    margin-top: 5rem;
+    margin-bottom: 7rem;
+    @include breakpoint-l {
+        margin-block: 4.5rem;
+    }
 }
 .filters__container {
     @include container;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 8rem;
+    @include breakpoint-l {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: unset;
+    }
 }
