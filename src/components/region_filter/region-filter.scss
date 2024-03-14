@@ -1,5 +1,31 @@
 .region-filter {
-    width: -moz-fit-content;
-    width: fit-content;
-    background-color: white;
+    position: relative;
+}
+.region-filter__btn,
+.regions__list {
+    font-size: 1.4rem;
+
+    background-color: $dark-blue;
+    color: $white;
+    padding-block: 1.5rem;
+    padding-inline: 2rem;
+    border-radius: 0.5rem;
+    border: 0;
+}
+.region-filter__text {
+    width: 100%;
+}
+.region-filter__icon {
+    width: initial;
+    padding-left: 5rem;
+}
+.regions__list {
+    position: absolute;
+    list-style-type: none;
+    width: 100%;
+    transform: translateY(5px);
+}
+.region {
+    margin-bottom: 1.5rem;
+    line-height: 1;
 }

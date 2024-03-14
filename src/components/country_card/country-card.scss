@@ -8,8 +8,9 @@
 .country-card-infos {
     background-color: $dark-blue;
     color: $very-light-gray;
-    padding: 3rem;
+    padding-inline: 3rem;
     padding-top: 2rem;
+    padding-bottom: 4rem;
 }
 .country-card-infos__name {
     font-size: 2rem;
@@ -22,7 +23,8 @@
     }
 }
 .country-card-infos__info {
-    margin-bottom: 0.75rem;
+    line-height: 1;
+    margin-bottom: 0.9rem;
     font-size: 1.4rem;
     color: hsl(0deg 0% 88.25%);
     font-weight: 300;

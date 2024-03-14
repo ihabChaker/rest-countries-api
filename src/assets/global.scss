@@ -19,3 +19,24 @@ $breakpoint-xl: 1280px;
     }
     margin-inline: auto;
 }
+
+@mixin breakpoint-sm {
+    @media screen and (min-width: $breakpoint-sm) {
+        @content;
+    }
+}
+@mixin breakpoint-m {
+    @media screen and (min-width: $breakpoint-m) {
+        @content;
+    }
+}
+@mixin breakpoint-l {
+    @media screen and (min-width: $breakpoint-l) {
+        @content;
+    }
+}
+@mixin breakpoint-xl {
+    @media screen and (min-width: $breakpoint-xl) {
+        @content;
+    }
+}

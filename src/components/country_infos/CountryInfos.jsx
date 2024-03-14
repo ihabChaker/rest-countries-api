@@ -27,7 +27,7 @@ import {
   transformCurrenciesObjectToString,
   transformLanguagesObjectToString,
 } from "../../utils/countries-infos-utils";
-import { getCountryNameByCode } from "../../utils/rest-countries-api-services";
+import { getCountriesNamesByCodesArray } from "../../utils/rest-countries-api-services";
 import { useEffect, useState } from "react";
 
 const CountryInfos = () => {
@@ -42,7 +42,7 @@ const CountryInfos = () => {
 
   useEffect(() => {
     if (country.borders) {
-      Promise.all(country.borders.map(getCountryNameByCode))
+      getCountriesNamesByCodesArray(country.borders)
         .then(setCountryNames)
         .catch(console.error);
     }
