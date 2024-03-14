@@ -11,15 +11,10 @@ $breakpoint-m: 768px;
 $breakpoint-l: 1024px;
 $breakpoint-xl: 1280px;
 
-@mixin container {
-    padding-inline: 1rem;
-    @media screen and (min-width: $breakpoint-xl) {
-        padding-inline: unset;
-        max-width: 1285px;
-    }
-    margin-inline: auto;
-}
-
+/// This mixin applies styles at the 'small' breakpoint.
+/// @param {Number} $breakpoint-sm - The minimum width of the viewport.
+/// @content - The styles to apply at the breakpoint.
+///
 @mixin breakpoint-sm {
     @media screen and (min-width: $breakpoint-sm) {
         @content;
@@ -39,4 +34,13 @@ $breakpoint-xl: 1280px;
     @media screen and (min-width: $breakpoint-xl) {
         @content;
     }
+}
+
+@mixin container {
+    padding-inline: 3rem;
+    @include breakpoint-xl {
+        padding-inline: unset;
+        max-width: 1285px;
+    }
+    margin-inline: auto;
 }

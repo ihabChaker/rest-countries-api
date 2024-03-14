@@ -3,14 +3,18 @@
 }
 .header__logo {
     color: $very-light-gray;
-
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    @include breakpoint-m {
+        font-size: 2.5rem;
+    }
     font-weight: 700;
 }
 .header__container {
     @include container;
-    padding-block: 2rem;
-
+    padding-block: 6rem;
+    @include breakpoint-m {
+        padding-block: 2rem;
+    }
     display: flex;
     justify-content: space-between;
     align-items: center;

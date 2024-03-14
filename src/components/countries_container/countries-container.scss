@@ -2,7 +2,16 @@
     @include container;
     // TODO: Tablets and mobile layouts adjustements
     display: grid;
-    @media screen and (min-width: $breakpoint-l) {
+    gap: 2rem;
+    @include breakpoint-m {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6rem;
+    }
+    @include breakpoint-l {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6rem;
+    }
+    @include breakpoint-xl {
         grid-template-columns: repeat(4, 1fr);
         gap: 7.4rem;
     }

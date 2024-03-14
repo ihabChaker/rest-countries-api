@@ -3,12 +3,19 @@
     background-color: transparent;
     border: 0;
 
-    font-size: 1.6rem;
+    font-size: 2.45rem;
+    @include breakpoint-m {
+        font-size: 1.6rem;
+    }
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.4rem;
+    @include breakpoint-m {
+        gap: 1rem;
+    }
 }
 .mode-changer__icon {
     width: -moz-fit-content;
     width: fit-content;
+    transform: rotate(-30deg);
 }

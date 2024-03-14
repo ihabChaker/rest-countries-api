@@ -21,7 +21,7 @@
     margin-top: 8rem;
 
     display: grid;
-    @media screen and (min-width: $breakpoint-l) {
+    @include breakpoint-l {
         grid-template-columns: repeat(2, 1fr);
         gap: 13rem;
     }
