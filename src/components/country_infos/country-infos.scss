@@ -1,25 +1,43 @@
 .country-infos__container {
     @include container;
 
+    padding-inline: 5.5rem;
     margin-top: 8rem;
     font-size: 1.6rem;
 }
 .country-infos__back-btn {
     cursor: pointer;
+
     background-color: $dark-blue;
     color: $very-light-gray;
-    border: 0;
-    display: flex;
-    gap: 1.4rem;
-    align-items: center;
-    padding: 10px 35px;
-    border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    border: 0;
+    border-radius: 0.5rem;
+    padding: 10px 40px;
+    font-size: 3rem;
+    @include breakpoint-l {
+        font-size: inherit;
+    }
+
+    display: flex;
+    align-items: center;
+    gap: 2.8rem;
+    @include breakpoint-l {
+        gap: 1.4rem;
+    }
+}
+.arrow-icon {
+    font-size: 3rem;
+    @include breakpoint-l {
+        font-size: initial;
+    }
 }
 .details {
-    // TODO: Mobile layout
-    margin-top: 8rem;
-
+    margin-top: 13rem;
+    @include breakpoint-l {
+        margin-top: 8rem;
+    }
     display: grid;
     @include breakpoint-l {
         grid-template-columns: repeat(2, 1fr);
@@ -27,35 +45,91 @@
     }
     // TODO: Mobile layout
 }
+.details__flag-container {
+    height: 450px;
+    @include breakpoint-l {
+        height: 400px;
+        width: 565px;
+    }
+    & > img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
 .details__infos-container {
-    padding-block: 4rem;
+    padding-block: 8rem;
+    @include breakpoint-l {
+        padding-block: 4rem;
+    }
     color: $white;
 }
 .details__common-name {
-    font-size: 3rem;
-    margin-bottom: 2.5rem;
+    font-size: 4.4rem;
+    margin-bottom: 5.5rem;
+    @include breakpoint-l {
+        font-size: 3rem;
+        margin-bottom: 2.5rem;
+    }
 }
 .details__columns-layout {
     display: grid;
-    // TODO: mobile layout
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6rem;
-
+    gap: 6.4rem;
+    @include breakpoint-l {
+        gap: 6rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
     margin-bottom: 5rem;
 }
 .details__column > p {
-    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    @include breakpoint-l {
+        margin-bottom: 1rem;
+        font-size: inherit;
+    }
 }
 
+.details__border-countries > p {
+    font-size: 3.3rem;
+    @include breakpoint-l {
+        font-size: inherit;
+    }
+}
 .details__border-countries {
     display: flex;
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 4rem;
+    @include breakpoint-l {
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+    }
+}
+.border-countries__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 2rem;
+    @include breakpoint-l {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+.border-country {
+    background-color: $dark-blue;
+    padding: 10px 20px;
+    font-size: 2.5rem;
+    @include breakpoint-l {
+        font-size: inherit;
+        padding: 10px 20px;
+    }
+    text-align: center;
 }
 .border-countries__container {
     display: flex;
-    gap: 1rem;
     flex-wrap: wrap;
+    gap: 1rem;
 }
 .border-country {
     background-color: $dark-blue;

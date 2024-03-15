@@ -51,7 +51,7 @@ const CountryInfos = () => {
     <div className="country-infos">
       <div className="country-infos__container">
         <button onClick={handleGoingBack} className="country-infos__back-btn">
-          <FontAwesomeIcon icon={faArrowLeft} /> Back
+          <FontAwesomeIcon icon={faArrowLeft} className="arrow-icon" /> Back
         </button>
         <div className="details">
           <div className="details__flag-container">
@@ -101,7 +101,7 @@ const CountryInfos = () => {
                 </div>
               </div>
               <div className="details__border-countries">
-                <p>Border countries: </p>
+                <p>Border Countries: </p>
                 <div className="border-countries__container">
                   {countryNames.map((name, index) => (
                     <BorderCountry key={index} name={name} />
