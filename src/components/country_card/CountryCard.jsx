@@ -9,6 +9,7 @@
  * @property {string} flags.svg
  * @property {string} flags.png
  * @property {string} flags.alt
+ * @property {string} cca2
  * @property {number} population
  * @property {string} region
  * @property {string} subregion
@@ -35,7 +36,7 @@ const CountryCard = ({ country }) => {
       <div className="country-card-infos">
         <div className="country-card-infos__container">
           <h2 className="country-card-infos__name">
-            <Link to={{ pathname: "/country" }} state={country}>
+            <Link to={{ pathname: `/country/${country.cca2}` }}>
               {country.name.common}
             </Link>
           </h2>

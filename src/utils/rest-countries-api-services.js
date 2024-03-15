@@ -5,7 +5,6 @@ async function fetchData(path, params) {
     API_ENDPOINT.pathname += path;
     Object.keys(params).forEach(key => API_ENDPOINT.searchParams.append(key, params[key]));
     try {
-        console.log(API_ENDPOINT.href)
         const response = await fetch(API_ENDPOINT.href);
         if (!response.ok) {
             throw new Error(`Failed to fetch ${path}`);
@@ -18,13 +17,15 @@ async function fetchData(path, params) {
 }
 
 export async function fetchCountries() {
-    const fieldsList = ['name', 'region', 'subregion', 'capital', 'tld', 'currencies', 'languages', 'borders', 'flags', 'population']
+    const fieldsList = ['name', 'region', 'capital', 'flags', 'population', 'cca2']
     return fetchData('/all', { 'fields': fieldsList.join(',') });
 }
+
 export async function getCountriesByRegion(region) {
     const fieldsList = ['name', 'region', 'subregion', 'capital', 'tld', 'currencies', 'languages', 'borders', 'flags', 'population']
     return fetchData(`/region/${region}`, { 'fields': fieldsList.join(',') });
 }
+
 export async function getCountriesByPartialName(name) {
     const fieldsList = ['name', 'region', 'subregion', 'capital', 'tld', 'currencies', 'languages', 'borders', 'flags', 'population']
     const path = (name == "") ? 'all' : `/name/${name}`
@@ -36,9 +37,17 @@ export async function getCountryNameByCode(code) {
     return data[0].name.common;
 }
 
+export async function getCountryInfosByCode(code) {
+    const fieldsList = ['name', 'region', 'subregion', 'capital', 'tld', 'currencies', 'languages', 'borders', 'flags', 'population']
+    const data = await fetchData('/alpha', { 'fields': fieldsList.join(','), 'codes': code });
+    console.log(data[0])
+    return data[0];
+}
+
 export async function getCountriesNamesByCodesArray(codeArray) {
     if (codeArray.length == 0) return ['There are no bordering countries']
 
-    const data = await fetchData('/alpha', { 'codes': codeArray.join(','), 'fields': 'name' });
-    return data.map(country => country.name.common);
+    const fieldsList = ['name', 'cca2']
+    const data = await fetchData('/alpha', { 'codes': codeArray.join(','), 'fields': fieldsList.join(',') });
+    return data;
 }

@@ -45,6 +45,8 @@
     transform: translateY(5px);
 }
 .region {
+    cursor: pointer;
+
     margin-bottom: 2rem;
     @include breakpoint-l {
         margin-bottom: 1.5rem;

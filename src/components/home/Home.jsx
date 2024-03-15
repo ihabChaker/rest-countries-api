@@ -21,7 +21,7 @@ const Home = () => {
         element: <CountriesContainer countries={countries.slice(0, 8)} />,
       },
       {
-        path: "country",
+        path: "/country/:countryCCA2Code",
         element: <CountryInfos />,
       },
     ],

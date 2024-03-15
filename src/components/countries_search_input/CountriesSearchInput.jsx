@@ -23,8 +23,7 @@ const CountriesSearchInput = () => {
       />
       <input
         type="text"
-        name=""
-        id=""
+        name="country-name"
         placeholder="Search for a country..."
         onInput={handleInput}
       />
