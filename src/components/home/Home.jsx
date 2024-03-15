@@ -14,17 +14,19 @@ const Home = () => {
       setCountries(fetchedCountries);
     });
   }, []);
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <CountriesContainer countries={countries.slice(0, 8)} />,
-    },
-    {
-      path: "country",
-      element: <CountryInfos />,
-    },
-    // { basename: "/rest-countries-api" },
-  ]);
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <CountriesContainer countries={countries.slice(0, 8)} />,
+      },
+      {
+        path: "country",
+        element: <CountryInfos />,
+      },
+    ],
+    { basename: "/rest-countries-api" }
+  );
   return (
     <div className="home">
       <Navbar />
