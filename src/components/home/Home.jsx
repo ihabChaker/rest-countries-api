@@ -23,7 +23,7 @@ const Home = () => {
       path: "country",
       element: <CountryInfos />,
     },
-    { basename: "/rest-countries-api" },
+    // { basename: "/rest-countries-api" },
   ]);
   return (
     <div className="home">

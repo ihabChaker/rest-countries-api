@@ -10,6 +10,6 @@ export default defineConfig({
       }
     },
   },
-  base: '/rest-countries-api',
+  base: '/rest-countries-api/',
   plugins: [react()],
 })
