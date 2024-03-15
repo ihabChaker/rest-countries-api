@@ -27,7 +27,7 @@ export async function getCountriesByRegion(region) {
 }
 
 export async function getCountriesByPartialName(name) {
-    const fieldsList = ['name', 'region', 'subregion', 'capital', 'tld', 'currencies', 'languages', 'borders', 'flags', 'population']
+    const fieldsList = ['name', 'region', 'subregion', 'capital', 'tld', 'currencies', 'languages', 'borders', 'flags', 'population', 'cca2']
     const path = (name == "") ? 'all' : `/name/${name}`
     return fetchData(path, { 'fields': fieldsList.join(','), 'fullText': false });
 }
@@ -40,7 +40,6 @@ export async function getCountryNameByCode(code) {
 export async function getCountryInfosByCode(code) {
     const fieldsList = ['name', 'region', 'subregion', 'capital', 'tld', 'currencies', 'languages', 'borders', 'flags', 'population']
     const data = await fetchData('/alpha', { 'fields': fieldsList.join(','), 'codes': code });
-    console.log(data[0])
     return data[0];
 }
 
